@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
-public interface PageVisitDtoMapper extends EntityMapper<ResponsePageVisitCounterDto, PageVisitCounter> {
+@Mapper(componentModel = "spring", uses = {})
+public interface ResponsePageVisitCounterMapper extends EntityMapper<ResponsePageVisitCounterDto, PageVisitCounter> {
 
     ResponsePageVisitCounterDto toDto(PageVisitCounter pageVisitCounter);
 

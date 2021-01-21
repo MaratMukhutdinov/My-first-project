@@ -1,7 +1,7 @@
 package com.example.service.impl;
 
 import com.example.dto.ResponsePageVisitCounterDto;
-import com.example.mapper.PageVisitDtoMapper;
+import com.example.mapper.ResponsePageVisitCounterMapper;
 import com.example.model.PageVisitCounter;
 import com.example.repository.PageVisitCounterRepository;
 import com.example.service.CounterService;
@@ -16,7 +16,7 @@ public class CounterServiceImpl implements CounterService {
 
     private final PageVisitCounterRepository pageVisitCounterRepository;
 
-    private final PageVisitDtoMapper pageVisitDtoMapper;
+    private final ResponsePageVisitCounterMapper pageVisitDtoMapper;
 
     @Override
     public List<ResponsePageVisitCounterDto> countVisits() {

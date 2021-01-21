@@ -8,9 +8,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "page_visit_counter")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class PageVisitCounter {
 
     @Id
