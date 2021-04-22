@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,19 +7,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "page_visit_counter")
+@Table(name = "product")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PageVisitCounter {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "page_name")
-    private String pageName;
+    @Column
+    private String name;
 
     @Column
-    private Long counter;
+    private Integer count;
 }

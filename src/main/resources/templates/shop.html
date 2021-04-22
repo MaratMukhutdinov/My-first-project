@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<table id="shop" class="table table-hover table-bordered"
+       style="width: 25%; margin-left: auto; margin-right: auto; margin-top: 10%">
+    <tr>
+        <th>Name</th>
+        <th>Count</th>
+    </tr>
+    <tr th:each="product : ${productList}">
+        <td style="width: 60%" th:text="${product.name}"></td>
+        <td style="width: 20%" th:text="${product.count}"></td>
+    </tr>
+</table>
+
+<form method="post" th:action="@{/add-coffee}" th:object="${product}">
+    <table class="table table-hover table-bordered"
+           style="width: 25%; margin-left: auto; margin-right: auto; margin-top: 10px">
+        <tr>
+            <td>
+                <input type="text" placeholder="Coffee name" th:field="*{name}">
+            </td>
+            <td>
+                <input type="text" placeholder="Count" th:field="*{count}">
+            </td>
+            <td>
+                <input type="submit" value="Add">
+            </td>
+        </tr>
+    </table>
+</form>
+</html>
