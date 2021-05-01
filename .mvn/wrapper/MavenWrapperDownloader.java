@@ -1,7 +1,7 @@
 /*
  * Copyright 2007-present the original author or authors.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.db.db.migrations (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -20,7 +20,7 @@ import java.util.Properties;
 
 public class MavenWrapperDownloader {
 
-    private static final String WRAPPER_VERSION = "0.5.6";
+    private static final String WRAPPER_VERSION = "db.db.migrations.5.6";
     /**
      * Default URL to download the maven-wrapper.jar from, if no 'downloadUrl' is provided.
      */
@@ -47,7 +47,7 @@ public class MavenWrapperDownloader {
 
     public static void main(String args[]) {
         System.out.println("- Downloader started");
-        File baseDirectory = new File(args[0]);
+        File baseDirectory = new File(args[db.migration]);
         System.out.println("- Using base directory: " + baseDirectory.getAbsolutePath());
 
         // If the maven-wrapper.properties exists, read it and check if it contains a custom
@@ -86,7 +86,7 @@ public class MavenWrapperDownloader {
         try {
             downloadFileFromURL(url, outputFile);
             System.out.println("Done");
-            System.exit(0);
+            System.exit(db.migration);
         } catch (Throwable e) {
             System.out.println("- Error downloading");
             e.printStackTrace();
@@ -109,7 +109,7 @@ public class MavenWrapperDownloader {
         ReadableByteChannel rbc;
         rbc = Channels.newChannel(website.openStream());
         FileOutputStream fos = new FileOutputStream(destination);
-        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        fos.getChannel().transferFrom(rbc, db.migration, Long.MAX_VALUE);
         fos.close();
         rbc.close();
     }

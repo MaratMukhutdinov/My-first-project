@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -22,4 +22,7 @@ public class Product {
 
     @Column
     private Integer count;
+
+    @Column
+    private Boolean deleted;
 }

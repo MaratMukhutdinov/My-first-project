@@ -8,6 +8,13 @@
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 </head>
+<style>
+    p {
+        text-align: center;
+        width: 100%; margin-left: auto; margin-right: auto;
+        color: red;
+    }
+</style>
 <table id="shop" class="table table-hover table-bordered"
        style="width: 25%; margin-left: auto; margin-right: auto; margin-top: 10%">
     <tr>
@@ -20,7 +27,7 @@
     </tr>
 </table>
 
-<form method="post" th:action="@{/add-coffee}" th:object="${product}">
+<form method="post" th:object="${product}">
     <table class="table table-hover table-bordered"
            style="width: 25%; margin-left: auto; margin-right: auto; margin-top: 10px">
         <tr>
@@ -31,9 +38,13 @@
                 <input type="text" placeholder="Count" th:field="*{count}">
             </td>
             <td>
-                <input type="submit" value="Add">
+                <input type="submit" value="Add" th:formaction="@{/add-coffee}">
+            </td>
+            <td>
+                <input type="submit" value="Remove" th:formaction="@{/remove-coffee}">
             </td>
         </tr>
     </table>
+    <p th:if="${#fields.hasErrors()}">Name shouldn't be empty and count should be between 0 and 99</p>
 </form>
 </html>
