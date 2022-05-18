@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.entity.Product;
+import com.example.entity.CoffeeOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +9,6 @@ import java.util.Optional;
 
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    Optional<Product> findByName(String name);
+public interface CoffeeOrderRepository extends JpaRepository<CoffeeOrder, Long> {
 
-    List<Product> findAllByDeletedFalse();
 }

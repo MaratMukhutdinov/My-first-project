@@ -1,8 +1,9 @@
 package com.example.controller;
 
 import com.example.constants.PageNameConstants;
-import com.example.dto.ProductDto;
-import com.example.service.ProductService;
+import com.example.dto.CoffeeDto;
+import com.example.dto.RequestCoffeeCountChangeDto;
+import com.example.service.CoffeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,37 +19,33 @@ import java.util.List;
 @Controller
 public class ShopPageController {
 
-    private final ProductService productService;
+    private final CoffeeService coffeeService;
 
     @GetMapping("/shop")
-    public String pageVisitCounter(Model model) {
-        List<ProductDto> allProducts = productService.getProducts();
-        model.addAttribute("product", new ProductDto());
-        model.addAttribute("productList", allProducts);
-        return PageNameConstants.SHOP_PAGE;
+    public String mainPage(Model model) {
+        List<CoffeeDto> allCoffee = coffeeService.getCoffeeList();
+        model.addAttribute("coffeeList", allCoffee);
+        return PageNameConstants.COFFEE_LIST;
     }
 
     @PostMapping("/add-coffee")
-    public String addCoffeeCount(@Valid @ModelAttribute("product") ProductDto productDto,
-                                 BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("product", productDto);
-            model.addAttribute("productList", productService.getProducts());
-            return PageNameConstants.SHOP_PAGE;
+    public String addCoffeeCount(@Valid RequestCoffeeCountChangeDto coffeeDto, BindingResult bindingResult) {
+        if (!bindingResult.hasErrors()) {
+            coffeeService.addCoffee(coffeeDto);
         }
-        productService.addCoffee(productDto);
         return "redirect:/shop";
     }
 
     @PostMapping("/remove-coffee")
-    public String removeCoffee(@Valid @ModelAttribute("product") ProductDto productDto,
-                               BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("product", productDto);
-            model.addAttribute("productList", productService.getProducts());
-            return PageNameConstants.SHOP_PAGE;
+    public String removeCoffee(@Valid RequestCoffeeCountChangeDto coffeeDto, BindingResult bindingResult, Model model) {
+        if (!bindingResult.hasErrors()) {
+            if (!coffeeService.removeCoffee(coffeeDto)) {
+                model.addAttribute("countError", "Введено некорректное значение количества!");
+                List<CoffeeDto> allCoffee = coffeeService.getCoffeeList();
+                model.addAttribute("coffeeList", allCoffee);
+                return PageNameConstants.COFFEE_LIST;
+            }
         }
-        productService.removeCoffee(productDto);
         return "redirect:/shop";
     }
 }

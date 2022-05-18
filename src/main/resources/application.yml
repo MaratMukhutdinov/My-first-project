@@ -1,12 +1,8 @@
 server:
   port: 8080
-  error:
-    whitelabel:
-      enabled: false
-    path: /error
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/coffeeShop
+    url: jdbc:postgresql://localhost:5432/coffeeShop
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
@@ -18,3 +14,5 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: validate
+  freemarker:
+    expose-request-attributes: true

@@ -4,14 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ProductDto {
+public class CoffeeDto {
 
     /**
      * id товара.
@@ -19,15 +18,14 @@ public class ProductDto {
     private Long id;
 
     /**
-     * Название товара.
+     * Наименование кофе.
      */
     @NotEmpty
     private String name;
 
     /**
-     * Количество товара.
+     * Остаток кофе в мл.
      */
-    @Digits(integer = 2, fraction = 0)
     @NotNull
-    private Integer count;
+    private Long balance;
 }
