@@ -18,7 +18,7 @@ public class RequestCoffeeCountChangeDto {
     private Long coffeeId;
 
     /**
-     * Количество в мг.
+     * Количество в граммах
      */
     @NotNull
     private Long count;

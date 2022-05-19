@@ -1,0 +1,6 @@
+CREATE TABLE role
+(
+    id   BIGSERIAL NOT NULL,
+    name VARCHAR(100) DEFAULT NULL,
+    PRIMARY KEY (id)
+);

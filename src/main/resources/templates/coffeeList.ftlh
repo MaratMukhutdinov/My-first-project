@@ -6,7 +6,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Наименование</th>
-            <th scope="col">Количество в мг.</th>
+            <th scope="col">Количество в гр</th>
         </tr>
         </thead>
         <tbody>
@@ -26,17 +26,20 @@
                     <option value=${coffee.id}>${coffee.name}</option>
                 </#list>
             </select>
-            <input class="form-control col-2 mb-3" type="text" placeholder="Количество в мг." name="count">
+            <input class="form-control col-2 mb-3" type="text" placeholder="Кол-во в гр" name="count">
         </div>
         <div>
-            <button type="submit" class="btn btn-success col-1 mr-2 ${(countError??)?string('is-invalid', '')} form-control" formaction="/add-coffee">Добавить</button>
-            <button type="submit" class="btn btn-danger col-1 ${(countError??)?string('is-invalid', '')} form-control" formaction="/remove-coffee">Убрать</button>
+            <button type="submit" class="btn btn-success col-1 mr-2 form-control" formaction="/add-coffee">Добавить</button>
+            <button type="submit" class="btn btn-danger col-1 ${(countError??)?string('is-invalid', '')} form-control" formaction="/remove-coffee">
+                Убрать
+            </button>
             <#if countError??>
                 <div class="invalid-feedback" style="color: red">
                     ${countError}
                 </div>
             </#if>
         </div>
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     </form>
     </body>
     </html>

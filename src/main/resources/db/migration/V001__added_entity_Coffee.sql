@@ -11,7 +11,7 @@ CREATE TABLE coffee
 COMMENT ON COLUMN coffee.id IS 'Первичный ключ';
 COMMENT ON COLUMN coffee.name IS 'Наименование кофе';
 COMMENT ON COLUMN coffee.deleted IS 'Признак удаленности';
-COMMENT ON COLUMN coffee.balance IS 'Остаток в мл';
+COMMENT ON COLUMN coffee.balance IS 'Остаток в гр';
 
 INSERT INTO coffee (name, deleted, balance) VALUES ('Latte', false, 100000);
 INSERT INTO coffee (name, deleted, balance) VALUES ('Americano', false, 100000);

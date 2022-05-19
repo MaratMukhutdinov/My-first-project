@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -25,7 +24,7 @@ public class ShopPageController {
     public String mainPage(Model model) {
         List<CoffeeDto> allCoffee = coffeeService.getCoffeeList();
         model.addAttribute("coffeeList", allCoffee);
-        return PageNameConstants.COFFEE_LIST;
+        return PageNameConstants.COFFEE_LIST_PAGE;
     }
 
     @PostMapping("/add-coffee")
@@ -43,7 +42,7 @@ public class ShopPageController {
                 model.addAttribute("countError", "Введено некорректное значение количества!");
                 List<CoffeeDto> allCoffee = coffeeService.getCoffeeList();
                 model.addAttribute("coffeeList", allCoffee);
-                return PageNameConstants.COFFEE_LIST;
+                return PageNameConstants.COFFEE_LIST_PAGE;
             }
         }
         return "redirect:/shop";
