@@ -3,17 +3,17 @@
 <@c.page>
     <div class="row h-100 justify-content-center align-items-center">
         <div class="row justify-content-center">
-            <form action="" method="post">
+            <form class="was-validated" action="" method="post">
                 <!-- Input fields -->
                 <div class="form-group">
                     <h3>Вход в систему</h3>
                     <small style="color: gray">Введите логин</small>
                     <br>
-                    <input class="form-control" type="text" name="username"/>
+                    <input class="form-control" type="text" name="username" required/>
                     <br>
                     <small style="color: gray">Введите пароль</small>
                     <br>
-                    <input class="form-control" type="password" name="password"/>
+                    <input class="form-control" type="password" name="password" required/>
                     <br>
                     <button type="submit" class="btn btn-primary btn-customized btn-block">Войти</button>
                 </div>

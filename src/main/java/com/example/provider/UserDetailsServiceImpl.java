@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        final User user = userRepository.findByUsernameIgnoreCase(username)
+        final User user = userRepository.findByUsernameIgnoreCaseAndDeletedFalse(username)
               .orElseThrow(() -> new UsernameNotFoundException(username));
 
         Set<CustomGrantedAuthorityDto> authorities = user.getRoles()

@@ -1,3 +1,5 @@
+<#import "login.ftlh" as l>
+
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
             <ul class="navbar-nav">
@@ -9,8 +11,6 @@
                 </li>
             </ul>
     </div>
-    <form class="form-inline" action="/logout" method="post">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Выйти</button>
-        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-    </form>
+    <div class="navbar-text mr-3"><#if user??>${name}</#if></div>
+    <@l.logout />
 </nav>

@@ -34,7 +34,8 @@ public class DatabaseAuthenticationProvider implements AuthenticationProvider {
         final String username = authentication.getName();
         final String password = authentication.getCredentials().toString();
 
-        final User user = userRepository.findByUsernameIgnoreCase(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        final User user = userRepository.findByUsernameIgnoreCaseAndDeletedFalse(username)
+              .orElseThrow(() -> new UsernameNotFoundException(username));
 
         if (PASSWORD_ENCODER.matches(password, user.getPassword())) {
             final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
