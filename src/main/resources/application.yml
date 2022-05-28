@@ -16,3 +16,9 @@ spring:
       ddl-auto: validate
   freemarker:
     expose-request-attributes: true
+logging:
+  file:
+    name: src/main/resources/logs/application-debug.log
+  logback:
+    rollingpolicy:
+      max-file-size: 20MB
